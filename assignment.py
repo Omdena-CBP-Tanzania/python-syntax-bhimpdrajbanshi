@@ -1,3 +1,13 @@
+
+"""
+assignment.py
+
+This module contains utility functions including:
+1. A function to format strings using f-strings.
+2. A function to check conditions for numbers.
+3. A function to calculate the sum of numbers using a loop.
+"""
+
 def format_string(name, age):
     """
     Create a formatted string using f-strings.
@@ -7,7 +17,7 @@ def format_string(name, age):
     Returns:
         str: Formatted string
     """
-    pass
+    return f"My name is {name} and I am {age} years old"
 
 def conditional_check(number):
     """
@@ -17,7 +27,11 @@ def conditional_check(number):
     Returns:
         str: "Greater", "Lesser", or "Equal"
     """
-    pass
+    if number == 10:
+        return 'Equal'
+    if number > 10:
+        return 'Greater'
+    return 'Lesser'
 
 def loop_sum(n):
     """
@@ -27,7 +41,10 @@ def loop_sum(n):
     Returns:
         int: Sum of numbers
     """
-    pass
+    total = 0
+    for x in range(n + 1):
+        total += x
+    return total
 
 def list_operations(numbers):
     """
@@ -37,7 +54,23 @@ def list_operations(numbers):
     Returns:
         tuple: (sum, max, min)
     """
-    pass
+    if not numbers:
+        return (0, None, None)  # Handle the case for empty list
+
+    # Initialize sum, max, and min with appropriate values
+    total_sum = 0
+    max_num = numbers[0]
+    min_num = numbers[0]
+
+    # Iterate through the list and calculate sum, max, and min
+    for num in numbers:
+        total_sum += num
+        if num > max_num:
+            max_num = max(max_num, num)
+        if num < min_num:
+            min_num = min(min_num, num)
+
+    return (total_sum, max_num, min_num)
 
 def dict_operations(students_dict):
     """
@@ -47,7 +80,13 @@ def dict_operations(students_dict):
     Returns:
         list: Names of students with scores > 80
     """
-    pass
+    # Initialize an empty list to store the names of students with scores > 80
+    result = []
+    # Use a for loop to iterate over the dictionary
+    for student, score in students_dict.items():
+        if score > 80:
+            result.append(student)
+    return result
 
 def set_operations(list1, list2):
     """
@@ -58,7 +97,7 @@ def set_operations(list1, list2):
     Returns:
         set: Common elements
     """
-    pass
+    return set(list1) & set(list2) # common elements
 
 def arithmetic_ops(a, b):
     """
@@ -69,7 +108,12 @@ def arithmetic_ops(a, b):
     Returns:
         dict: Results of arithmetic operations
     """
-    pass
+    return{
+        "sum": a+b,
+        "difference": a-b,
+        "product": a*b,
+        "quotient": a/b
+    }
 
 def logical_ops(x, y):
     """
@@ -80,7 +124,11 @@ def logical_ops(x, y):
     Returns:
         dict: Results of logical operations
     """
-    pass
+    return {
+        "and": x and y,   # Logical AND
+        "or": x or y,     # Logical OR
+        "not_x": not x    # Logical NOT
+    }
 
 def bitwise_ops(a, b):
     """
@@ -91,4 +139,8 @@ def bitwise_ops(a, b):
     Returns:
         dict: Results of bitwise operations
     """
-    pass
+    return {
+        "and": a & b,   # Bitwise AND
+        "or": a | b,    # Bitwise OR
+        "xor": a ^ b    # Bitwise XOR
+    }
